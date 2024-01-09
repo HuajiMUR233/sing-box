@@ -1,4 +1,4 @@
-!!! error ""
+!!! quote ""
 
     仅支持 Linux、Windows 和 macOS。
 
@@ -21,6 +21,12 @@
   "inet6_route_address": [
     "::/1",
     "8000::/1"
+  ],
+  "inet4_route_exclude_address": [
+    "192.168.0.0/16"
+  ],
+  "inet6_route_exclude_address": [
+    "fc00::/7"
   ],
   "endpoint_independent_nat": false,
   "stack": "system",
@@ -96,7 +102,7 @@ tun 接口的 IPv6 前缀。
 
 设置到 Tun 的默认路由。
 
-!!! error ""
+!!! quote ""
 
     为避免流量环回，请设置 `route.auto_detect_interface` 或 `route.default_interface` 或 `outbound.bind_interface`。
 
@@ -131,6 +137,14 @@ tun 接口的 IPv6 前缀。
 
 启用 `auto_route` 时使用自定义路由而不是默认路由。
 
+#### inet4_route_exclude_address
+
+启用 `auto_route` 时排除自定义路由。
+
+#### inet6_route_exclude_address
+
+启用 `auto_route` 时排除自定义路由。
+
 #### endpoint_independent_nat
 
 启用独立于端点的 NAT。
@@ -157,7 +171,7 @@ TCP/IP 栈。
 
 #### include_interface
 
-!!! error ""
+!!! quote ""
 
     接口规则仅在 Linux 下被支持，并且需要 `auto_route`。
 
@@ -173,7 +187,7 @@ TCP/IP 栈。
 
 #### include_uid
 
-!!! error ""
+!!! quote ""
 
     UID 规则仅在 Linux 下被支持，并且需要 `auto_route`。
 
@@ -193,7 +207,7 @@ TCP/IP 栈。
 
 #### include_android_user
 
-!!! error ""
+!!! quote ""
 
     Android 用户和应用规则仅在 Android 下被支持，并且需要 `auto_route`。
 

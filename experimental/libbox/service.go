@@ -122,7 +122,11 @@ func (w *platformInterfaceWrapper) OpenTun(options *tun.Options, platformOptions
 	if len(options.IncludeAndroidUser) > 0 {
 		return nil, E.New("android: unsupported android_user option")
 	}
-	tunFd, err := w.iif.OpenTun(&tunOptions{options, platformOptions})
+	routeRanges, err := options.BuildAutoRouteRanges(true)
+	if err != nil {
+		return nil, err
+	}
+	tunFd, err := w.iif.OpenTun(&tunOptions{options, routeRanges, platformOptions})
 	if err != nil {
 		return nil, err
 	}
@@ -204,6 +208,14 @@ func (w *platformInterfaceWrapper) UnderNetworkExtension() bool {
 
 func (w *platformInterfaceWrapper) ClearDNSCache() {
 	w.iif.ClearDNSCache()
+}
+
+func (w *platformInterfaceWrapper) ReadWIFIState() adapter.WIFIState {
+	wifiState := w.iif.ReadWIFIState()
+	if wifiState == nil {
+		return adapter.WIFIState{}
+	}
+	return (adapter.WIFIState)(*wifiState)
 }
 
 func (w *platformInterfaceWrapper) DisableColors() bool {

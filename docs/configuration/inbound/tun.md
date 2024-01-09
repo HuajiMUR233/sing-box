@@ -1,4 +1,4 @@
-!!! error ""
+!!! quote ""
 
     Only supported on Linux, Windows and macOS.
 
@@ -21,6 +21,12 @@
   "inet6_route_address": [
     "::/1",
     "8000::/1"
+  ],
+  "inet4_route_exclude_address": [
+    "192.168.0.0/16"
+  ],
+  "inet6_route_exclude_address": [
+    "fc00::/7"
   ],
   "endpoint_independent_nat": false,
   "stack": "system",
@@ -96,7 +102,7 @@ The maximum transmission unit.
 
 Set the default route to the Tun.
 
-!!! error ""
+!!! quote ""
 
     To avoid traffic loopback, set `route.auto_detect_interface` or `route.default_interface` or `outbound.bind_interface`
 
@@ -130,6 +136,14 @@ Use custom routes instead of default when `auto_route` is enabled.
 
 Use custom routes instead of default when `auto_route` is enabled.
 
+#### inet4_route_exclude_address
+
+Exclude custom routes when `auto_route` is enabled.
+
+#### inet6_route_exclude_address
+
+Exclude custom routes when `auto_route` is enabled.
+
 #### endpoint_independent_nat
 
 !!! info ""
@@ -157,11 +171,11 @@ TCP/IP stack.
 
 !!! warning ""
 
-    gVisor and LWIP stacks is not included by default, see [Installation](/#installation).
+    gVisor and LWIP stacks is not included by default, see [Installation](./#installation).
 
 #### include_interface
 
-!!! error ""
+!!! quote ""
 
     Interface rules are only supported on Linux and require auto_route.
 
@@ -177,7 +191,7 @@ Conflict with `include_interface`.
 
 #### include_uid
 
-!!! error ""
+!!! quote ""
 
     UID rules are only supported on Linux and require auto_route.
 
@@ -197,7 +211,7 @@ Exclude users in route, but in range.
 
 #### include_android_user
 
-!!! error ""
+!!! quote ""
 
     Android user and package rules are only supported on Android and require auto_route.
 

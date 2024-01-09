@@ -24,6 +24,7 @@
       "server_port": 8081
     }
   },
+  "multiplex": {},
   "transport": {}
 }
 ```
@@ -48,7 +49,7 @@ TLS 配置, 参阅 [TLS](/zh/configuration/shared/tls/#inbound)。
 
 #### fallback
 
-!!! error ""
+!!! quote ""
 
     没有证据表明 GFW 基于 HTTP 响应检测并阻止 Trojan 服务器，并且在服务器上打开标准 http/s 端口是一个更大的特征。
 
@@ -59,6 +60,10 @@ TLS 配置, 参阅 [TLS](/zh/configuration/shared/tls/#inbound)。
 为 ALPN 指定回退服务器配置。
 
 如果不为空，ALPN 不在此列表中的 TLS 回退请求将被拒绝。
+
+#### multiplex
+
+参阅 [多路复用](/zh/configuration/shared/multiplex#inbound)。
 
 #### transport
 

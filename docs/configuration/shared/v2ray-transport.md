@@ -15,6 +15,7 @@ Available transports:
 * WebSocket
 * QUIC
 * gRPC
+* HTTPUpgrade
 
 !!! warning "Difference from v2ray-core"
 
@@ -130,7 +131,7 @@ It needs to be consistent with the server.
 
 !!! warning ""
 
-    QUIC is not included by default, see [Installation](/#installation).
+    QUIC is not included by default, see [Installation](./#installation).
 
 !!! warning "Difference from v2ray-core"
 
@@ -141,7 +142,7 @@ It needs to be consistent with the server.
 
 !!! note ""
 
-    standard gRPC has good compatibility but poor performance and is not included by default, see [Installation](/#installation).
+    standard gRPC has good compatibility but poor performance and is not included by default, see [Installation](./#installation).
 
 ```json
 {
@@ -184,3 +185,32 @@ In standard gRPC client:
 If enabled, the client transport sends keepalive pings even with no active connections. If disabled, when there are no active connections, `idle_timeout` and `ping_timeout` will be ignored and no keepalive pings will be sent.
 
 Disabled by default.
+
+### HTTPUpgrade
+
+```json
+{
+  "type": "httpupgrade",
+  "host": "",
+  "path": "",
+  "headers": {}
+}
+```
+
+#### host
+
+Host domain.
+
+The server will verify if not empty.
+
+#### path
+
+Path of HTTP request.
+
+The server will verify if not empty.
+
+#### headers
+
+Extra headers of HTTP request.
+
+The server will write in response if not empty.

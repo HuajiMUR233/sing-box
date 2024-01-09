@@ -24,6 +24,7 @@
       "server_port": 8081
     }
   },
+  "multiplex": {},
   "transport": {}
 }
 ```
@@ -46,7 +47,7 @@ TLS configuration, see [TLS](/configuration/shared/tls/#inbound).
 
 #### fallback
 
-!!! error ""
+!!! quote ""
 
     There is no evidence that GFW detects and blocks Trojan servers based on HTTP responses, and opening the standard http/s port on the server is a much bigger signature.
 
@@ -57,6 +58,10 @@ Fallback server configuration. Disabled if `fallback` and `fallback_for_alpn` ar
 Fallback server configuration for specified ALPN.
 
 If not empty, TLS fallback requests with ALPN not in this table will be rejected.
+
+#### multiplex
+
+See [Multiplex](/configuration/shared/multiplex#inbound) for details.
 
 #### transport
 
